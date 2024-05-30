@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Submission with JavaScript</title>
+  <style>
+    form {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="contactForm">
+    <h2>Contact Us</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="age">Age:</label>
+    <input type="text" id="age" name="age" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <div id="response"></div>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from submitting traditionally
+
+      // Get the form data
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Display the form data
+      const responseDiv = document.getElementById('response');
+      responseDiv.innerHTML = `
+        <h3>Form Data</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Age:</strong> ${age}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `;
+    });
+  </script>
+</body>
+</html>
