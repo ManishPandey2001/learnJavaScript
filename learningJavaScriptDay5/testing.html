@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<form id="myForm">
+    <input type="text" id="name" name="name" required>
+    <input type="submit" value="Submit">
+</form>
+<body>
+    
+    Hi everyone
+    <script src="preventDefault.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+
+<head >
+    <title>Stop Propagation Example</title>
+    <style >
+        #outer {
+            width: 900px;
+            height: 90px;
+            background-color: lightgreen;
+            padding: 30px;
+            text-align: center;
+            align-items: center;
+        }
+
+        #inner {
+            width: 880px;
+            height: 50px;
+            background-color: lightpink;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer" >
+        Outer Element
+        <div id="inner">Inner Element</div>
+    </div>
+    <script src="stopPropagation.js">
+    </script>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Return False Example</title>
+    <script>
+        function validateForm(event) {
+            const name = document.getElementById('name').value;
+            if (name === '') {
+                alert('Name must be filled out');
+                return false; // Prevents form submission and stops event propagation
+            }
+            return true; // Allows form submission
+        }
+    </script>
+</head>
+
+<body>
+
+    <form onsubmit="return validateForm(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+</html>
